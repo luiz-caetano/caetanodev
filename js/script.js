@@ -1,4 +1,6 @@
 const modoBtn = document.getElementById('modo-btn');
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
 const body = document.body;
 
 // Verifica se há preferência salva no localStorage
@@ -22,6 +24,21 @@ modoBtn.addEventListener('click', () => {
         : '<i class="fas fa-moon"></i>';
 });
 
+// Toggle do menu mobile
+hamburgerBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburgerBtn.innerHTML = navMenu.classList.contains('active')
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+});
+
+// Fecha o menu ao clicar em um link
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
 
 // Smooth scrolling para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
