@@ -216,7 +216,7 @@ body.dark-mode .hamburger {
 
 .hero-text p {
     font-size: 1.2rem;
-    color: #e2e8f0;
+    color: #64748b;
     margin-bottom: 2rem;
     text-align: left;
     animation: slideInLeft 1s ease-out 0.2s both;
