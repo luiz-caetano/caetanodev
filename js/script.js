@@ -24,22 +24,6 @@ modoBtn.addEventListener('click', () => {
         : '<i class="fas fa-moon"></i>';
 });
 
-// Toggle do menu mobile
-hamburgerBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburgerBtn.innerHTML = navMenu.classList.contains('active')
-        ? '<i class="fas fa-times"></i>'
-        : '<i class="fas fa-bars"></i>';
-});
-
-// Fecha o menu ao clicar em um link
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
-    });
-});
-
 // Smooth scrolling para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -53,4 +37,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
+});
+
+// Animação para botões CTA ao carregar a página
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseover', () => {
+        btn.style.transform = 'scale(1.05)';
+    });
+    btn.addEventListener('mouseout', () => {
+        btn.style.transform = 'scale(1)';
+    });
+});
+
+// Menu Hamburguer Toggle
+
+hamburgerBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  hamburgerBtn.classList.toggle('active');
+  
+  // Alternar ícone (hamburguer vs X)
+  hamburgerBtn.innerHTML = navMenu.classList.contains('active')
+    ? '<i class="fas fa-times"></i>'
+    : '<i class="fas fa-bars"></i>';
 });
