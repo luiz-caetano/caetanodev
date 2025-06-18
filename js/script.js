@@ -1,5 +1,7 @@
 const modoBtn = document.getElementById('modo-btn');
 const body = document.body;
+const menuToggle = document.getElementById('menu-toggle');
+const navUl = document.querySelector('nav ul');
 
 // Verifica se há preferência salva no localStorage
 const darkMode = localStorage.getItem('darkMode') === 'true';
@@ -22,6 +24,10 @@ modoBtn.addEventListener('click', () => {
         : '<i class="fas fa-moon"></i>';
 });
 
+// Toggle mobile menu
+menuToggle.addEventListener('click', () => {
+    navUl.classList.toggle('active');
+});
 
 // Smooth scrolling para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -34,6 +40,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
+            // Close mobile menu after clicking a link
+            navUl.classList.remove('active');
         }
     });
 });
